@@ -8,7 +8,10 @@ export class HashService {
     return await bcrypt.hash(data, salt);
   }
 
-  public matchPassword(data: string, hashedData: string): number {
-    return bcrypt.compare(data, hashedData);
+  public async matchPassword(
+    password: string,
+    passwordHash: string,
+  ): Promise<any> {
+    return bcrypt.compare(password, passwordHash);
   }
 }
